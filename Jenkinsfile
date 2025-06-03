@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             when {
                 expression {
-                    params.executeTests
+                    params.executeTest
                 }
             }
             steps {
@@ -31,10 +31,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                withCredentials([
-                    usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
-                ]) {
-                    sh "some script ${USER} ${PWD}"
                 }
                 echo "deploying version ${params.VERSION}"
             }
