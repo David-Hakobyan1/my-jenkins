@@ -13,23 +13,23 @@ pipeline {
                 }
             }
         }
-        stage('Buildi jar') {
+        stage('Build jar') {
             steps {
-                script{
+                script {
                     gv.buildJar()
                 }
             }
         }
         stage('Build image') {
             steps {
-                script{
+                script {
                     gv.buildImage()
                 }
             }
         }
         stage('Deploy') {
             steps {
-                script{
+                script {
                     gv.deployApp()
                 }
             }
